@@ -43,13 +43,14 @@ void Add(char c, char* word)
 
 int main()
 {
-	char *Word = (char*)malloc(1);
+	char *Word = (char*)calloc(1, sizeof(char));
 	char c;
 	int state = 0;
 	do
 	{
 		c = getchar();
-		if (isspace(c))
+		printf("%d\n", (int)c);
+		if (isspace(c) || c == 26)
 		{
 			if (state == 1)
 			{
@@ -73,7 +74,6 @@ int main()
 	}
 	while (c != 26 && c != EOF);
 	printf("%s", Word);
-
 	_getch();
     return 0;
 }
